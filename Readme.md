@@ -31,7 +31,7 @@ where r is a normally distributed random number with zero mean and unit variance
 
 ## Example use
 
-```
+```python
 from ciles.ciles import LangevinIntegrator as LI
 import numpy as np
 
