@@ -20,7 +20,16 @@ Forward integration is performed with the [Euler-Murayama scheme](https://en.wik
 x(t+dt) = x(t) + dt * A(x(t)) + r * sqrt(dt * B(x(t))),
 where r is a normally distributed random number with zero mean and unit variance.
 
-## Example usage
+## Dependencies
+* Numpy
+* Cython
+* [Cython-gsl](https://github.com/twiecki/CythonGSL)
+
+## Installation
+* Clone repository
+* `python setup.py build_ext`
+
+## Example use
 
 ```
 from ciles.ciles import LangevinIntegrator as LI
@@ -42,5 +51,13 @@ out = li.out
 
 ## More examples
 
-See ``examples.py`` for more example usage
+See ``examples.py`` for more example usage.
+
+### Final distributions after 2s diffusion
+See the [source](https://github.com/flinz/ciles/blob/master/examples.py#L7):
+![Diffusion for 2 seconds](https://user-images.githubusercontent.com/97735/33634816-ce92b380-da15-11e7-944c-e704cbe9cfab.png)
+
+### Trajectories for drift-field with 2 fixed points
+See the [source](https://github.com/flinz/ciles/blob/master/examples.py#L37):
+![Plotting trajectories](https://user-images.githubusercontent.com/97735/33634815-ce790f48-da15-11e7-9cd9-1e08fdab9773.png)
 
