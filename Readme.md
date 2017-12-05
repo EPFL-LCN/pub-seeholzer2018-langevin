@@ -28,6 +28,8 @@ where r is a normally distributed random number with zero mean and unit variance
 ## Installation
 * Clone repository
 * `python setup.py build_ext`
+* `python setup.py install`
+* To test: `python setup.py test`
 
 ## Example use
 
