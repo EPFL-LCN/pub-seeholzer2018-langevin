@@ -1,0 +1,6 @@
+*.so
+*.pyc
+*.c
+*.html
+build
+ciles.egg-info
