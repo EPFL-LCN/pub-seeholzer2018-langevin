@@ -5,6 +5,7 @@ from matplotlib import mlab
 
 
 def simple_diffusion():
+    """Simulate diffusion from one initial position"""
 
     B = 0.05
     tmax = 2.
@@ -29,12 +30,15 @@ def simple_diffusion():
     pl.title(r"Distribution after diffusion for $t=%g$s" % (tmax))
     pl.xlabel(r"Stochastic variable $x$")
     pl.ylabel(r"Probability density $p(x)$")
-    
+
     pl.legend()
     pl.show()
 
 
 def plot_trajectories():
+    """Plot several trajectories under drift and diffusion with
+    evenly spaced initial positions, with a drift-field A(x)
+    that has two fixed points."""
 
     # create a drift field with 2 fixed points
     xs = np.arange(0, 2.*np.pi, 2.*np.pi/100.)
@@ -55,7 +59,7 @@ def plot_trajectories():
         tmax=tmax,
         reps=reps,
         initials=initials)
-    
+
     # plot data
     cm = pl.cm.rainbow
     for i in range(initials):
@@ -67,7 +71,7 @@ def plot_trajectories():
 
     xlim = (0, tmax)
     xlabel = r"$t$ [s]"
-    
+
     ylim = (0, np.pi * 2.)
     yticks = [0, np.pi, 2.*np.pi]
     ylabel = r"Stochastic variable $x$"
