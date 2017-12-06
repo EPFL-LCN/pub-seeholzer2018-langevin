@@ -58,6 +58,25 @@ cdef class LangevinIntegrator:
             return self.out_
         def __set__(self, TYPE_FLOAT_t value):
             raise ValueError("out can not be set manually, use run()")
+
+    property differences:
+        def __get__(self):
+            """Calculates array of discrete jumps used to create the integrated process.
+            This essentially is np.diff(out), with additional reversing of the modulus.
+            
+            Returns:
+                np.array: discrete differences
+            """
+            
+            # finite differences -> tmp = out[t+dt] - out[t] 
+            tmp = np.diff(self.out)
+            # find where jumps are larger than half the modulus
+            jumps = np.abs(tmp) > self.modulus/2.
+            # correct these jumps
+            tmp[jumps] -= np.sign(tmp[jumps]) * self.modulus
+            return tmp
+        def __set__(self, TYPE_FLOAT_t value):
+            raise ValueError("out can not be set manually, use run()")
     
     property dt:
         def __get__(self):
