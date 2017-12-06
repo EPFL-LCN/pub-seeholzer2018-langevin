@@ -1,4 +1,4 @@
-|Build Status|
+|Build Status| |Pypi Link|
 
 CILES: Continuous Interval Langevin Equation Simulator
 ======================================================
@@ -94,8 +94,13 @@ See the
 |Plotting trajectories|
 
 .. |Build Status| image:: https://travis-ci.org/flinz/ciles.svg?branch=master
-   :target: https://travis-ci.org/flinz/ciles
+    :target: https://travis-ci.org/flinz/ciles
+
+.. |Pypi Link| image:: https://img.shields.io/pypi/v/ciles.svg
+    :target: https://pypi.python.org/pypi/ciles
+
 .. |Diffusion for 2 seconds| image:: https://user-images.githubusercontent.com/97735/33634816-ce92b380-da15-11e7-944c-e704cbe9cfab.png
-	:width: 75 %
+    :width: 75 %
+
 .. |Plotting trajectories| image:: https://user-images.githubusercontent.com/97735/33634815-ce790f48-da15-11e7-9cd9-1e08fdab9773.png
-	:width: 75 %
+    :width: 75 %
