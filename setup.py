@@ -21,8 +21,17 @@ ext_modules = [
     )
 ]
 
+
+# Parse requirements
 install_reqs = parse_requirements('requirements.txt', session=False)
 reqs = [str(ir.req) for ir in install_reqs]
+
+
+# Parse readme
+def readme():
+    with open('README.rst') as f:
+        return f.read()
+
 
 setup(
     include_dirs=[cython_gsl.get_include()],
@@ -33,6 +42,7 @@ setup(
     description='Langevin integrator for SDEs with constant drift and\
         diffusion on continuous intervals with circular boundary\
         conditions.',
+    long_description=readme(),
     author='Alex Seeholzer',
     author_email='seeholzer@gmail.com',
     url='https://github.com/flinz/ciles',
