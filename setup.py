@@ -12,8 +12,8 @@ Cython.Compiler.Options.annotate = True
 
 ext_modules = [
     Extension(
-        "ciles.ciles",
-        ["ciles/ciles.pyx"],
+        "ciles.integrator",
+        ["ciles/integrator.pyx"],
         include_dirs=[
             numpy.get_include(), cython_gsl.get_cython_include_dir()],
         libraries=cython_gsl.get_libraries(),

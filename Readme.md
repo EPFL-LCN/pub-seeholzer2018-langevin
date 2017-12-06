@@ -28,12 +28,12 @@ where r is a normally distributed random number with zero mean and unit variance
 ## Installation
 * Clone repository
 * `python setup.py install`
-* To test: `python setup.py test`
+* To test (using `nosetests`): `nosetests`
 
 ## Example use
 
 ```python
-from ciles.ciles import LangevinIntegrator as LI
+from ciles.integrator import LangevinIntegrator as LI
 import numpy as np
 
 drift = np.zeros(100)  # no drift field

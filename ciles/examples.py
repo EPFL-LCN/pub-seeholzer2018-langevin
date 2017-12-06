@@ -1,6 +1,6 @@
 import numpy as np
 import pylab as pl
-import ciles.tools as ct
+from .tools import runDistribution, runTrajectories
 from matplotlib import mlab
 
 
@@ -12,7 +12,7 @@ def simple_diffusion():
     drift = np.zeros(100)  # no drift field
     diff = np.ones(100) * B  # constant diffusion with 1 deg^2/s
 
-    finals = ct.runDistribution(
+    finals = runDistribution(
         drift,
         diff,
         dt=.01,
@@ -52,7 +52,7 @@ def plot_trajectories():
     initials = 6
     tmax = 10.
     dt = .01
-    out = ct.runTrajectories(
+    out = runTrajectories(
         drift,
         diff,
         dt=dt,

@@ -1,10 +1,19 @@
 import numpy as np
-from ciles import LangevinIntegrator as LI
+from .integrator import LangevinIntegrator as LI
 import time
 
 
 def get_initial_poss(initials):
-    """Converts initials into an array"""
+    """Converts initials into an array of initial positions.
+
+    Args:
+        initials (int or list or np.array): If int, this is the number
+            of (evenly spaced) initial positions. If list or np.array this
+            corresponds to the actual initial positions.
+
+    Returns:
+        np.array: Array of inital positions
+    """
     if type(initials) is int:
         return np.arange(0., 2. * np.pi, 2. * np.pi / float(initials))
     elif type(initials) in [list, np.ndarray]:
@@ -13,13 +22,14 @@ def get_initial_poss(initials):
         raise Exception('Unknown data type for initials')
 
 
-def runTrajectories(drift,
-             diff,
-             dt=.001,
-             tmax=10.,
-             reps=10,
-             initials=20,
-             silent=False):
+def runTrajectories(
+        drift,
+        diff,
+        dt=.001,
+        tmax=10.,
+        reps=10,
+        initials=20,
+        silent=False):
     """Runs and returns several trajectories"""
 
     li = LI(drift, diff, dt=dt, tmax=tmax)
@@ -41,13 +51,15 @@ def runTrajectories(drift,
     return out
 
 
-def runDistribution(drift,
-                    diff,
-                    dt=.001,
-                    tmax=10.,
-                    reps=10,
-                    initials=20,
-                    silent=False):
+def runDistribution(
+        drift,
+        diff,
+        dt=.001,
+        tmax=10.,
+        reps=10,
+        initials=20,
+        silent=False):
+    """Runs and returns only final positions of trajectories"""
 
     li = LI(drift, diff, dt=dt, tmax=tmax)
     initial_poss = get_initial_poss(initials)
