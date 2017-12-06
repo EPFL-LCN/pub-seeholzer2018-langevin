@@ -29,9 +29,13 @@ dimension. They are internally interpolated (using
 then used in the forward integration.
 
 Forward integration is performed with the `Euler-Murayama
-scheme <https://en.wikipedia.org/wiki/Euler%E2%80%93Maruyama_method>`__:
-x(t+dt) = x(t) + dt \* A(x(t)) + r \* sqrt(dt \* B(x(t))), where r is a
-normally distributed random number with zero mean and unit variance.
+scheme <https://en.wikipedia.org/wiki/Euler%E2%80%93Maruyama_method>`__
+
+::
+
+    x(t+dt) = x(t) + dt * A(x(t)) + r * sqrt(dt * B(x(t)))
+
+where r is a normally distributed random number with zero mean and unit variance.
 
 Dependencies
 ------------
