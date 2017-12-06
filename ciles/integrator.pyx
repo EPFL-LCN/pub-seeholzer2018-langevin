@@ -88,6 +88,12 @@ cdef class LangevinIntegrator:
             return self.diffusion_**2 / self.dt
         def __set__(self, np.ndarray value):
             raise NotImplementedError("Please instantiate a new LangevinIntegrator instead.")
+
+    property rands:
+        def __get__(self):
+            return self.rands_
+        def __set__(self, TYPE_FLOAT_t value):
+            raise ValueError("rands can not be set manually, use run()")
             
 
     def __init__(self, drift, diffusion, dt=.001, tmax=1., modulus=2.*np.pi):

@@ -69,7 +69,7 @@ Example use
     li = LI(drift, diff, dt=dt, tmax=tmax)
 
     # simulate a single trajectory
-    li.run()
+    li.run(1)
     out = li.out
 
 More examples
