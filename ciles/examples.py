@@ -21,7 +21,8 @@ def simple_diffusion():
         initials=1)
 
     finals = finals.reshape(-1)
-    finals[np.where(finals > np.pi)] = finals[np.where(finals > np.pi)] - 2*np.pi
+    finals[np.where(finals > np.pi)] = \
+        finals[np.where(finals > np.pi)] - 2*np.pi
 
     # compare histogram to predicted distribution
     n, bins, patches = pl.hist(finals, bins=100, normed=True)

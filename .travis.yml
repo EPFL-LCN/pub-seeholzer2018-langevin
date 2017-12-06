@@ -1,0 +1,28 @@
+# make sure we get trust container based (for speed) builds
+dist: trusty
+sudo: false
+group: beta
+
+language: python
+python:
+  - '2.7'
+install:
+  - if [[ "$TRAVIS_PYTHON_VERSION" == "2.7" ]]; then wget https://repo.continuum.io/miniconda/Miniconda-latest-Linux-x86_64.sh
+    -O miniconda.sh; else wget https://repo.continuum.io/miniconda/Miniconda3-latest-Linux-x86_64.sh
+    -O miniconda.sh; fi
+  - bash miniconda.sh -b -p $HOME/miniconda
+  - export PATH="$HOME/miniconda/bin:$PATH"
+  - hash -r
+  - conda config --set always_yes yes --set changeps1 no
+  - conda update -q conda
+  - conda info -a
+  - conda create -q -n test-environment python=$TRAVIS_PYTHON_VERSION pep8 nose cython numpy
+  - source activate test-environment
+  - conda install -c conda-forge cythongsl
+before_script:
+  - export DISPLAY=:99.0
+  - sh -e /etc/init.d/xvfb start
+  - sleep 3
+script:
+  - pep8 ciles --max-line-length=120
+  - nosetests --verbosity=2

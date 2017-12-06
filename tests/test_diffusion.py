@@ -21,7 +21,8 @@ class TestConstantDiffusion(unittest.TestCase):
             initials=1)
 
         finals = finals.reshape(-1)
-        finals[np.where(finals > np.pi)] = finals[np.where(finals > np.pi)] - 2*np.pi
+        finals[np.where(finals > np.pi)] = \
+            finals[np.where(finals > np.pi)] - 2*np.pi
 
         # test that variance grows linear in time with slope B
         np.testing.assert_almost_equal(finals.var(), B * tmax, decimal=3)

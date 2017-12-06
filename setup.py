@@ -30,7 +30,9 @@ setup(
     packages=find_packages(),
     test_suite='tests',
     name='ciles',
-    description='Langevin integrator for SDEs with constant drift and diffusion on continuous intervals with circular boundary conditions.',
+    description='Langevin integrator for SDEs with constant drift and\
+        diffusion on continuous intervals with circular boundary\
+        conditions.',
     author='Alex Seeholzer',
     author_email='seeholzer@gmail.com',
     url='https://github.com/flinz/ciles',
