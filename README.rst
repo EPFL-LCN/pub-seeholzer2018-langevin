@@ -46,10 +46,14 @@ Dependencies
 
 Installation
 ------------
-
+To install ciles in your Python distribution:
 -  Clone repository
 -  ``python setup.py install``
 -  To test (using ``nosetests``): ``nosetests``
+
+You can also use ciles locally without installing:
+-  Clone repository
+-  ``python setup.py build_ext --inplace``
 
 Example use
 -----------
