@@ -88,6 +88,7 @@ def plot_trajectories():
     pl.title(r"Drift field with 2 fixed points")
     pl.show()
 
+
 if __name__ == '__main__':
     simple_diffusion()
     plot_trajectories()

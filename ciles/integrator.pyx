@@ -1,8 +1,6 @@
 import numpy as np
 cimport numpy as np
 cimport cython
-from scipy.interpolate import spleval as sp
-from scipy.interpolate import splmake as splm
 from cython_gsl cimport gsl_spline_eval, gsl_interp_accel, gsl_spline_alloc, gsl_spline, gsl_interp_cspline_periodic, gsl_interp_accel_alloc, gsl_spline_init,gsl_interp_accel_free,gsl_spline_free
 
 
